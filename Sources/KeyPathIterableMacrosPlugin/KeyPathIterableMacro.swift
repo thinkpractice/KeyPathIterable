@@ -26,7 +26,7 @@ public struct KeyPathIterableMacro: MemberMacro {
             .compactMap { $0.decl.as(VariableDeclSyntax.self)}
             .filter {
                 if decl.is(ActorDeclSyntax.self) {
-                    return $0.modifiers?.contains { $0.name.text == "nonisolated" } ?? false
+                    return $0.modifiers.contains { $0.name.text == "nonisolated" }
                 } else {
                     return true
                 }
@@ -50,8 +50,8 @@ extension KeyPathIterableMacro: ConformanceMacro {
             return []
         }
 
-        if let inheritedTypes = declaration.inheritanceClause?.inheritedTypeCollection,
-           inheritedTypes.contains(where: { inherited in inherited.typeName.trimmedDescription == "KeyPathIterable" })
+        if let inheritedTypes = declaration.inheritanceClause?.inheritedTypes,
+           inheritedTypes.contains(where: { inherited in inherited.type.trimmedDescription == "KeyPathIterable" })
         {
             return []
         }
