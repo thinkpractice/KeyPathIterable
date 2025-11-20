@@ -1,3 +1,3 @@
 @attached(member, names: named(allKeyPaths))
-@attached(extension)
+@attached(extension, conformances: KeyPathIterable)
 public macro KeyPathIterable() = #externalMacro(module: "KeyPathIterableMacrosPlugin", type: "KeyPathIterableMacro")

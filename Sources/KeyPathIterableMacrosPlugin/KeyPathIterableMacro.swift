@@ -64,8 +64,8 @@ extension KeyPathIterableMacro: ExtensionMacro {
         {
             return []
         }
-
-        return [("KeyPathIterable", nil)]
+        let keyPathExtension = try ExtensionDeclSyntax("extension \(type.trimmed): KeyPathIterable {}")
+        return [keyPathExtension]
     }
 }
 
