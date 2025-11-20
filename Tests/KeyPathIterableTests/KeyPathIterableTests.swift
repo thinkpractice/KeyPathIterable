@@ -1,5 +1,5 @@
 import XCTest
-import KeyPathIterable
+@testable import KeyPathIterable
 
 final class KeyPathIterableTests: XCTestCase {
     func testStructKeyPathIterable() throws {
